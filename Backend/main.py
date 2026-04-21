@@ -52,13 +52,13 @@ def hello():
 
 
 # ✅ Config test
-@app.get("/config")
-def secrets():
-    config = getAppConfig()
-    return {
-        "msg": "server is running",
-        "app_name": config.app_name
-    }
+# @app.get("/config")
+# def secrets():
+#     config = getAppConfig()
+#     return {
+#         "msg": "server is running",
+#         "app_name": config.app_name
+#     }
 
 
 # ✅ Create tables (ok for now)
