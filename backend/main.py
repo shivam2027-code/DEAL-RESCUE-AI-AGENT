@@ -39,6 +39,11 @@ RENDER_URL = os.environ.get("RENDER_EXTERNAL_URL")
 if RENDER_URL:
     allowed_origins.append(RENDER_URL)
 
+# Add the deployed frontend URL to allowed origins
+FRONTEND_URL = os.environ.get("FRONTEND_URL")
+if FRONTEND_URL:
+    allowed_origins.append(FRONTEND_URL)
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=allowed_origins,
