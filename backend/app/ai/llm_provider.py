@@ -1,15 +1,10 @@
 from langchain_groq import ChatGroq
 from app.core.config import getAppConfig
 
-from dotenv import load_dotenv
-load_dotenv()
+config = getAppConfig()
 
 llm = ChatGroq(
     model="llama-3.3-70b-versatile",
-    temperature=1.5
+    temperature=1.5,
+    api_key=config.groq_api_key,
 )
-
-
-
-
-

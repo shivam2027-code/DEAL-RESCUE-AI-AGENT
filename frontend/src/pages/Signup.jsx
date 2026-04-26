@@ -1,36 +1,27 @@
-// src/pages/Login.jsx
+// src/pages/Signup.jsx
 import { useState } from "react";
-import axios from "axios";
+import API from "../api";
 
-export default function Login() {
+export default function Signup() {
   const [form, setForm] = useState({
     email: "",
     password: "",
   });
 
-  const handleLogin = async (e) => {
+  const handleSignup = async (e) => {
     e.preventDefault();
 
     try {
-      const res = await axios.post(
-        "http://127.0.0.1:8000/api/auth/login",
-        form
-      );
-
-      // 🔥 store token
-      localStorage.setItem("token", res.data.access_token);
-
-      alert("Login successful");
-
-      window.location.href = "/dashboard";
+      await API.post("/api/auth/signup", form);
+      alert("Signup successful");
     } catch (err) {
       alert(err.response?.data?.detail || "Error");
     }
   };
 
   return (
-    <form onSubmit={handleLogin}>
-      <h2>Login</h2>
+    <form onSubmit={handleSignup}>
+      <h2>Signup</h2>
 
       <input
         type="email"
@@ -48,7 +39,7 @@ export default function Login() {
         }
       />
 
-      <button type="submit">Login</button>
+      <button type="submit">Signup</button>
     </form>
   );
 }

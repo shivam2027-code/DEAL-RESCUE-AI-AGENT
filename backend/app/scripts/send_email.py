@@ -1,8 +1,11 @@
 import requests
 import time
 import random
+import os
 
-URL = "http://localhost:8000/api/email/incoming"
+# Use RENDER_EXTERNAL_URL in production, fallback to localhost for dev
+BASE_URL = os.environ.get("RENDER_EXTERNAL_URL", "http://localhost:8000")
+URL = f"{BASE_URL}/api/email/incoming"
 
 emails = [
     "Hi, we are also considering Salesforce for this.",

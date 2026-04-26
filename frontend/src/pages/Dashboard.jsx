@@ -7,7 +7,7 @@ function Dashboard() {
 
   useEffect(() => {
   const fetchDrafts = () => {
-    fetch("http://localhost:8000/api/drafts")
+    fetch("/api/drafts")
       .then(res => res.json())
       .then(data => {
         setDrafts(data);
@@ -27,7 +27,7 @@ function Dashboard() {
 
   // ✅ APPROVE
   const handleApprove = () => {
-    fetch(`http://localhost:8000/api/draft/${selectedDraft.id}/approve`, {
+    fetch(`/api/draft/${selectedDraft.id}/approve`, {
       method: "POST",
     })
       .then(res => res.json())
@@ -43,7 +43,7 @@ function Dashboard() {
 
   // ❌ REJECT
   const handleReject = () => {
-    fetch(`http://localhost:8000/api/draft/${selectedDraft.id}/reject`, {
+    fetch(`/api/draft/${selectedDraft.id}/reject`, {
       method: "POST",
     })
       .then(res => res.json())

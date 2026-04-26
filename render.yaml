@@ -1,0 +1,34 @@
+services:
+  - type: web
+    name: dealrescue-api
+    runtime: python
+    plan: free
+    buildCommand: bash build.sh
+    startCommand: bash start.sh
+    envVars:
+      - key: APP_NAME
+        value: dealRescueAgent
+      - key: APP_ENV
+        value: production
+      - key: DATABASE_URL
+        fromDatabase:
+          name: dealrescue-db
+          property: connectionURI
+      - key: GROQ_API_KEY
+        sync: false
+      - key: EMAIL
+        sync: false
+      - key: PASSWORD
+        sync: false
+      - key: SECRET_KEY
+        generateValue: true
+      - key: ACCESS_TOKEN_EXPIRE_MINUTES
+        value: "30"
+      - key: PYTHON_VERSION
+        value: "3.11.0"
+      - key: NODE_VERSION
+        value: "20.11.0"
+
+databases:
+  - name: dealrescue-db
+    plan: free
