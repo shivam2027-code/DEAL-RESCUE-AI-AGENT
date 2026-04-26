@@ -1,20 +1,20 @@
-# Dependencies
-node_modules/
-.venv/
-__pycache__/
-*.pyc
+# # Dependencies
+# node_modules/
+# .venv/
+# __pycache__/
+# *.pyc
 
-# Environment
-.env
+# # Environment
+# .env
 
-# Build output
-dist/
-build/
+# # Build output
+# dist/
+# build/
 
-# OS
-.DS_Store
-Thumbs.db
+# # OS
+# .DS_Store
+# Thumbs.db
 
-# IDE
-.vscode/
-.idea/
+# # IDE
+# .vscode/
+# .idea/
